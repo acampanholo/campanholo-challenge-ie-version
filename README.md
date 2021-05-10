@@ -71,8 +71,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # André Campanholo's Challenge Documentation
+>Note: this is the Internet Explorer 11 repository. Click here for the [Main Version](https://github.com/acampanholo/campanholo-challenge/tree/master).
 
 ## Main Version
+
 
 The following documentation concerns André Campanholo’s resolution of Intelie’s challenge-chart-plot. There are few inline comments but those were used for development reference only.
 
