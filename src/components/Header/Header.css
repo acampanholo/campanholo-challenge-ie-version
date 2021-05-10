@@ -1,0 +1,10 @@
+header {
+  font-size: 40px;
+  background-color: #dadada;
+  /* min-height: 80px; */
+  padding-left: 30px;
+  padding-top: 22px;
+  padding-bottom: 28px;
+  font-family: "Source Sans Pro";
+  border-bottom: 1px solid black;
+}
