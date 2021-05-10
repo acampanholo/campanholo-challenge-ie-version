@@ -1,5 +1,4 @@
 
->Note: this is the Internet Explorer 11 Version repository. Click for the [Main Version repository](https://github.com/acampanholo/campanholo-challenge/tree/master).
 
 
 # André Campanholo's Challenge Documentation
