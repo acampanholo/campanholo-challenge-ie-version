@@ -71,7 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # André Campanholo's Challenge Documentation
->Note: this is the Internet Explorer 11 Version repository. Click here for the [Main Version](https://github.com/acampanholo/campanholo-challenge/tree/master).
+>Note: this is the Internet Explorer 11 Version repository. Click for the [Main Version repository](https://github.com/acampanholo/campanholo-challenge/tree/master).
 
 ## Main Version
 
