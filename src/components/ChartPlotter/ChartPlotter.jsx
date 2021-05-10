@@ -13,12 +13,8 @@ class ChartPlotter extends React.Component {
     super(props);
     this.state = {
       input: "",
-      start: [],
-      stop: [],
-      span: [],
       treatedData: [],
       treatedLabels: [],
-      finalData: [],
     };
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
@@ -38,7 +34,6 @@ class ChartPlotter extends React.Component {
     let values = [];
     let spanBegin;
     let spanEnd;
-    let treatedLabels = [];
     let treatedValues;
 
     let error;
@@ -46,25 +41,25 @@ class ChartPlotter extends React.Component {
     try {
       let convertedInput = JSON.parse(this.state.input);
 
-      convertedInput.every((line, index) => {
-        if (line.type == "start" && !start) {
+      convertedInput.every((line) => {
+        if (line.type === "start" && !start) {
           start = new EventStart();
           start.group = line.group;
           start.select = line.select;
-        } else if (line.type == "span" && start && !span) {
+        } else if (line.type === "span" && start && !span) {
           span = new EventSpan();
           span.begin = line.begin;
           span.end = line.end;
-        } else if (line.type == "stop" && span) {
+        } else if (line.type === "stop" && span) {
           stop = new EventStop();
           stop.timestamp = line.timestamp;
           return false;
-        } else if (line.type == "data" && span) {
+        } else if (line.type === "data" && span) {
           data = new EventData();
 
           // Getting group values
 
-          start.group.forEach((groupItem, groupIdx) => {
+          start.group.forEach((groupItem) => {
             if (line[groupItem]) {
               if (groupItems.indexOf(groupItem) === -1) {
                 groupItems.push(groupItem);
@@ -75,7 +70,7 @@ class ChartPlotter extends React.Component {
 
           // Getting select values
 
-          start.select.forEach((selectItem, selectIdx) => {
+          start.select.forEach((selectItem) => {
             if (line[selectItem]) {
               if (selectItems.indexOf(selectItem) === -1) {
                 selectItems.push(selectItem);
@@ -101,8 +96,8 @@ class ChartPlotter extends React.Component {
 
           // Creating full label
 
-          labels.forEach((label, labelIdx) => {
-            selectItems.forEach((selectItem, selectIdx) => {
+          labels.forEach((label) => {
+            selectItems.forEach((selectItem) => {
               if (finalLabels.indexOf(label + " " + selectItem) === -1) {
                 finalLabels.push(label + " " + selectItem);
               }
@@ -111,7 +106,7 @@ class ChartPlotter extends React.Component {
 
           // Getting values
 
-          start.select.forEach((selectItem, selectIdx) => {
+          start.select.forEach((selectItem) => {
             if (line[selectItem]) {
               values.push(line[selectItem]);
             }
@@ -135,8 +130,6 @@ class ChartPlotter extends React.Component {
         return true;
       });
 
-      console.log(treatedLabels);
-
       // Converting span to single number
 
       spanBegin = new Date(span.begin);
@@ -153,12 +146,8 @@ class ChartPlotter extends React.Component {
       }
 
       this.setState({
-        start: start,
-        span: span,
-        stop: stop,
         treatedLabels: finalLabels,
         treatedData: treatedValues,
-        // finalData: convertedInput,
       });
 
       console.log(this.state.treatedLabels);
@@ -169,6 +158,7 @@ class ChartPlotter extends React.Component {
       console.log("Check input format");
       error = document.querySelector(".error-message-format");
       error.classList.add("display");
+      this.setState({ treatedLabels: [] });
     }
   }
 
@@ -184,13 +174,12 @@ class ChartPlotter extends React.Component {
           Error: please check your data format and try again.
         </div>
         <div className="error-message-data">
-          Error: one or more select values don't have a pair. Please check your
-          data and try again.
+          Error: one or more events don't have a pair. Please check your data
+          and try again.
         </div>
         <ChartView
           labels={this.state.treatedLabels}
           data={this.state.treatedData}
-          // finalData={this.state.finalData}
         />
         <Footer handleOnClick={this.handleOnClick} />
       </div>

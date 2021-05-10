@@ -22,16 +22,6 @@ class ChartView extends React.Component {
         }
         return data;
       } else {
-        // data = [
-        //   [
-        //     "x",
-        //     "Error: one or more select values don't have a pair. ",
-        //     "Please check your data and try again.",
-        //   ],
-        //   [0, 0, 1],
-        //   [0, 1, 0],
-        // ];
-
         data = [
           ["x", "error"],
           [0, 0],
@@ -57,9 +47,20 @@ class ChartView extends React.Component {
         options={{
           hAxis: {
             title: "Time in minutes",
+            gridlines: {
+              count: 0,
+            },
+            baselineColor: "#fff",
+          },
+          vAxis: {
+            gridlines: {
+              count: 3,
+            },
+            textPosition: "none",
           },
           fontSize: 14,
           fontName: "Source Sans Pro",
+          pointSize: 10,
         }}
         rootProps={{ "data-testid": "1" }}
       />

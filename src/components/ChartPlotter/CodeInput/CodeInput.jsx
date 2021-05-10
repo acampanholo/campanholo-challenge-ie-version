@@ -14,7 +14,7 @@ class CodeInput extends React.Component {
   render() {
     return (
       <AceEditor
-        placeholder='Please insert valid JSON format. Example: [{"key": "value"}]. Do not forget the brackets.'
+        placeholder='Please insert a valid JSON format. Example: [{"key": "value"}]. Please remember to use brackets and double quotes.'
         className="code-input"
         mode="json"
         theme="monokai"
@@ -23,13 +23,6 @@ class CodeInput extends React.Component {
         onChange={this.props.handleOnChange}
         fontSize={16}
         showPrintMargin={true}
-        setOptions={{
-          enableBasicAutocompletion: false,
-          enableLiveAutocompletion: false,
-          enableSnippets: false,
-          showLineNumbers: true,
-          tabSize: 2,
-        }}
       />
     );
   }
