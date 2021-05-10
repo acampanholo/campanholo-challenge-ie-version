@@ -71,7 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # André Campanholo's Challenge Documentation
->Note: this is the Internet Explorer 11 repository. Click here for the [Main Version](https://github.com/acampanholo/campanholo-challenge/tree/master).
+>Note: this is the Internet Explorer 11 Version repository. Click here for the [Main Version](https://github.com/acampanholo/campanholo-challenge/tree/master).
 
 ## Main Version
 
@@ -92,6 +92,17 @@ Back in the ChartPlotter component, I defined the handleOnClick function that tr
 
 
 The values were treated to build an array correspondent to the data format required by the chart library I used: Google Charts. This treatment considers the order that the data is input by the user, so the second value of any line should be input in the correct order. After the treatment process, which also ensured the begin and end points of the X axis of the chart would respect the span limits, I passed down the data to the ChartView component through props. Inside this component, I defined the plotFinalData() function inside another try…catch statement in order to send the correct array to the component as a property of the chart.  If the user inputs a valid data format but with missing values, another error message will be shown on the screen.
+
+
+## IE 11 Version
+
+According to its official documentation, React supports Internet Explorer 11 but some polyfills are necessary. I decided to develop two versions: the main version, which works on Edge, Chrome and Firefox and uses the most modern methods; and the IE11 version, a simpler version built specifically for Internet Explorer 11 using the main version’s code with some twitches.
+
+
+First of all, I had to import the necessary polyfills on the index.js file. Without the polyfills, the react app will likely not even be on the screen. After that, Internet Explorer 11 is able to render the app but it won’t be functional yet. As mentioned on the Main Version documentation, I used the replaceAll() as one of the methods to convert the string input into an object. This method is new to Javascript and is not supported on Internet Explorer. Using the JSON.parse() methor alone, I was able to convert the string into an object but only if the string is a valid JSON format. The IE11 version is simpler because it requires a more specific data format from the user, but will work on Internet Explorer 11 with the changes made.
+
+
+
 
 
 
