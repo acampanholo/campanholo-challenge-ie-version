@@ -3,7 +3,11 @@ import "./Header.css";
 
 class Header extends React.Component {
   render() {
-    return <header>André Campanholo's Challenge</header>;
+    return (
+      <header>
+        André Campanholo's Challenge - Internet Explorer 11 Version
+      </header>
+    );
   }
 }
 
