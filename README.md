@@ -74,7 +74,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Main Version
 
-The following documentation concerns André Campanholo’s resolution of Intelie’s challenge-chart-plot. There are few inline comments but those were used for development reference only.
+The following documentation concerns André Campanholo’s resolution of Intelie’s challenge-chart-plot. There are few inline comments but those were used for development reference only..\
 To build the specified application, I used React JS as recommended. It was also a personal choice because React is a great framework to render components on the screen, great for passing data from one component to another and very easy to update information to the user.
 The App.js file contains only two components: a simple Header and a component called ChartPlotter. I decided to develop all the other components inside the ChartPlotter component so it would be easier to pass information around from one component to another. The components are: CodeInput, ChartView and Footer. In all components – Header included –, I tried to use all the proper HTML tags for better page indexing.
 The CodeInput component receives the data input from the user and sends it back to the ChartPlotter so it can be treated. I imported a component called React-Ace to be my code editor and sent the data to the parent component using a callback function handleOnChange and setting it to the state of the ChartPlotter component. After getting the input value, I created the Footer component containing simply a button with a callback function to handle the click event.
